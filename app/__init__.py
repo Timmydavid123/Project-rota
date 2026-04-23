@@ -4,4 +4,3 @@
 __version__ = "1.0.0"
 __author__ = "Rota System Team"
 
-from app.main import app
