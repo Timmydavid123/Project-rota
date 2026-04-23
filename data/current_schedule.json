@@ -1,0 +1,2558 @@
+[
+  {
+    "date": "2026-04-21",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "Sean Powell",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "Lewis Shaw",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Bob Smith",
+    "staff_assigned": "Jordan West",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Robert Brown",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Jessica Sanders",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Tyler Barnes",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "David Wilson",
+    "staff_assigned": "Henry Wright",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Emily Brown",
+    "staff_assigned": "George Peterson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Henry Watson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Oscar Bailey",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Grace Richardson",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Isabella James",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Grace Moore",
+    "staff_assigned": "Connor Patterson",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "William Taylor",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Jacob Price",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Irene Anderson",
+    "staff_assigned": "Ethan Collins",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Benjamin Young",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Sophia Hughes",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Katie Fowler",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "David Miller",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Brittany Thompson",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Larry White",
+    "staff_assigned": "Liam Turner",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Olivia Clark",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Isla Stewart",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Amanda Jackson",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Alexander Hall",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Theo Ward",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Olivia Thompson",
+    "staff_assigned": "Andrew Garcia",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Leo Cooper",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Daniel Kelly",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Jane Doe",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Ryan Hughes",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Zoe Coleman",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Robert Robinson",
+    "staff_assigned": "Noah Parker",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Harry Bell",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Nathan Brooks",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Thomas Rodriguez",
+    "staff_assigned": "Sarah Moore",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Alfie Cox",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Arthur Ramirez",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Charlotte King",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Chloe Bennett",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Jack Cook",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Wendy Walker",
+    "staff_assigned": "Michael Johnson",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Christopher Thomas",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Evie Murphy",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "John Smith",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Joshua Martin",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Mia Rogers",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-21",
+    "service_user": "Zachary King",
+    "staff_assigned": "Emma Walker",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent "
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "James Lee",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "Leo Cooper",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Bob Smith",
+    "staff_assigned": "Michael Johnson",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Noah Parker",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Daniel Kelly",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Georgia Chapman",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "David Wilson",
+    "staff_assigned": "Theo Ward",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Ashley Anderson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Jack Cook",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Arthur Ramirez",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Molly Perry",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Rebecca Holmes",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Grace Moore",
+    "staff_assigned": "Hannah Price",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Matthew White",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Zoe Coleman",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Irene Anderson",
+    "staff_assigned": "Isabella Allen",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Isabella James",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Henry Watson",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Adam Jenkins",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Ava Edwards",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Connor Patterson",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Larry White",
+    "staff_assigned": "Lily Torres",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Lucy Bennett",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Abigail Long",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "John Smith",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Liam Turner",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Grace Richardson",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Olivia Thompson",
+    "staff_assigned": "Ellie Ward",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Jessica Wilson",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Charlotte King",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Alexander Hall",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Lucas Morris",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Lewis Shaw",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Robert Robinson",
+    "staff_assigned": "Evie Murphy",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Samantha Martinez",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Chloe Bennett",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Thomas Rodriguez",
+    "staff_assigned": "Megan Harris",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "William Taylor",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Harry Bell",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Victor Lee",
+    "staff_assigned": "George Peterson",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Tyler Barnes",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Katie Fowler",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Wendy Walker",
+    "staff_assigned": "Joseph Robinson",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Alfie Cox",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Jacob Price",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Robert Brown",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Amelia Rivera",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Emily Brooks",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-22",
+    "service_user": "Zachary King",
+    "staff_assigned": "Sophia Lewis",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent "
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "Jessica Wilson",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "Freya Morgan",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Bob Smith",
+    "staff_assigned": "Noah Parker",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Harry Bell",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Daniel Kelly",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Ryan Hughes",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "David Wilson",
+    "staff_assigned": "Emma Walker",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Joseph Robinson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Lucy Bennett",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Mia Rogers",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Caleb Foster",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Molly Perry",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Grace Moore",
+    "staff_assigned": "Hannah Price",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Poppy Howard",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Nathan Brooks",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Irene Anderson",
+    "staff_assigned": "Matthew White",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "David Miller",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Christopher Thomas",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Alfie Cox",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Sophie Gray",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Georgia Chapman",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Larry White",
+    "staff_assigned": "Andrew Garcia",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Isla Stewart",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Adam Jenkins",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Grace Scott",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Chloe Bennett",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Oscar Bailey",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Olivia Thompson",
+    "staff_assigned": "Daniel Rodriguez",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "John Smith",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Ethan Collins",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Megan Harris",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Brittany Thompson",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Lily Torres",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Robert Robinson",
+    "staff_assigned": "Theo Ward",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Amanda Jackson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Rebecca Holmes",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Thomas Rodriguez",
+    "staff_assigned": "Samantha Martinez",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Connor Patterson",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Jordan West",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Joshua Martin",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Henry Wright",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Abigail Long",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Wendy Walker",
+    "staff_assigned": "Ashley Anderson",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Sophia Lewis",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Liam Turner",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Robert Brown",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Emily Brooks",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Sophia Hughes",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-23",
+    "service_user": "Zachary King",
+    "staff_assigned": "Amelia Rivera",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent "
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "Sophie Gray",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "Jessica Sanders",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Bob Smith",
+    "staff_assigned": "Sophia Hughes",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Carol Davis",
+    "staff_assigned": "John Smith",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Robert Brown",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Henry Wright",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "David Wilson",
+    "staff_assigned": "Daniel Rodriguez",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Connor Patterson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Georgia Chapman",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Isabella Allen",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Caleb Foster",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Tyler Barnes",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Grace Moore",
+    "staff_assigned": "Alexander Hall",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Nathan Brooks",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Sean Powell",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Irene Anderson",
+    "staff_assigned": "Harry Bell",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Benjamin Young",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "George Peterson",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Lucy Bennett",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Leo Cooper",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Hannah Price",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Larry White",
+    "staff_assigned": "Ethan Collins",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Monica Harris",
+    "staff_assigned": "James Lee",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Lucas Morris",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Henry Watson",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Zoe Coleman",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Jordan West",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Olivia Thompson",
+    "staff_assigned": "Joshua Martin",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Emily Davis",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Ellie Ward",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Jane Doe",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Oscar Bailey",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Rebecca Holmes",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Robert Robinson",
+    "staff_assigned": "Theo Ward",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Ashley Anderson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Daniel Kelly",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Thomas Rodriguez",
+    "staff_assigned": "Poppy Howard",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Andrew Garcia",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Grace Scott",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Michael Johnson",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Matthew White",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Amelia Rivera",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Wendy Walker",
+    "staff_assigned": "David Miller",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Noah Parker",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Ava Edwards",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Emma Walker",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Ryan Hughes",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Katie Fowler",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-24",
+    "service_user": "Zachary King",
+    "staff_assigned": "Joseph Robinson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent "
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Bob Smith",
+    "staff_assigned": "Evie Murphy",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Emily Davis",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Ellie Ward",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Lewis Shaw",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Hannah Price",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Georgia Chapman",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Grace Moore",
+    "staff_assigned": "Jack Cook",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Irene Anderson",
+    "staff_assigned": "Daniel Rodriguez",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Andrew Garcia",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Isabella Allen",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Lily Torres",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Larry White",
+    "staff_assigned": "William Taylor",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Grace Scott",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Isla Stewart",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Theo Ward",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Chloe Bennett",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Sophie Gray",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Christopher Thomas",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Ava Edwards",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Emily Brooks",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Emma Walker",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Zoe Coleman",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Amelia Rivera",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Sean Powell",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Wendy Walker",
+    "staff_assigned": "Mia Rogers",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Liam Turner",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Leo Cooper",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-25",
+    "service_user": "Zachary King",
+    "staff_assigned": "Ashley Anderson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent "
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Bob Smith",
+    "staff_assigned": "Emily Brooks",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Megan Harris",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Freya Morgan",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Irene Anderson",
+    "staff_assigned": "Jessica Sanders",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Larry White",
+    "staff_assigned": "Grace Scott",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Joseph Robinson",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Sophie Gray",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Grace Richardson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Sean Powell",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Wendy Walker",
+    "staff_assigned": "Hannah Price",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-26",
+    "service_user": "Zachary King",
+    "staff_assigned": "Jessica Wilson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent "
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "William Taylor",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Alice Johnson",
+    "staff_assigned": "Alexander Hall",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Bob Smith",
+    "staff_assigned": "Jack Cook",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Robert Brown",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Charlotte King",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Carol Davis",
+    "staff_assigned": "Georgia Chapman",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "David Wilson",
+    "staff_assigned": "Theo Ward",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Emily Brown",
+    "staff_assigned": "John Smith",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Emily Brown",
+    "staff_assigned": "Joseph Robinson",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Amanda Jackson",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Freya Morgan",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Frank Miller",
+    "staff_assigned": "Arthur Ramirez",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Grace Moore",
+    "staff_assigned": "Poppy Howard",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Daniel Rodriguez",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Henry Taylor",
+    "staff_assigned": "Henry Wright",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Irene Anderson",
+    "staff_assigned": "Harry Bell",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Emily Davis",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Brittany Thompson",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Jack Thomas",
+    "staff_assigned": "Jordan West",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Joshua Martin",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Karen Jackson",
+    "staff_assigned": "Lewis Shaw",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Larry White",
+    "staff_assigned": "Alfie Cox",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Sarah Moore",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Monica Harris",
+    "staff_assigned": "Olivia Clark",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Ashley Anderson",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "Emma Walker",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Nathan Martin",
+    "staff_assigned": "George Peterson",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Olivia Thompson",
+    "staff_assigned": "Ethan Collins",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Jessica Wilson",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Peter Garcia",
+    "staff_assigned": "Caleb Foster",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Jane Doe",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Henry Watson",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Queenie Martinez",
+    "staff_assigned": "Ryan Hughes",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Robert Robinson",
+    "staff_assigned": "Nathan Brooks",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Adam Jenkins",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Susan Clark",
+    "staff_assigned": "Abigail Long",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 2,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Thomas Rodriguez",
+    "staff_assigned": "Sophia Lewis",
+    "shift": "5:00-20:00",
+    "hours": 15,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "James Lee",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Ursula Lewis",
+    "staff_assigned": "Daniel Kelly",
+    "shift": "11:00-18:00",
+    "hours": 7,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Samantha Martinez",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Jacob Price",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Victor Lee",
+    "staff_assigned": "Connor Patterson",
+    "shift": "8:00-20:00",
+    "hours": 12,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Wendy Walker",
+    "staff_assigned": "Grace Scott",
+    "shift": "9:00-17:00",
+    "hours": 8,
+    "support_ratio": 1,
+    "location": "Independent"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "David Miller",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Xavier Allen",
+    "staff_assigned": "Benjamin Young",
+    "shift": "20:00-8:00",
+    "hours": 12,
+    "support_ratio": 2,
+    "location": "Residential"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Michael Johnson",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Matthew White",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Yvonne Young",
+    "staff_assigned": "Amelia Rivera",
+    "shift": "11:00-16:00",
+    "hours": 5,
+    "support_ratio": 3,
+    "location": "Group Home"
+  },
+  {
+    "date": "2026-04-27",
+    "service_user": "Zachary King",
+    "staff_assigned": "Lucas Morris",
+    "shift": "9:00-15:00",
+    "hours": 6,
+    "support_ratio": 1,
+    "location": "Independent "
+  }
+]

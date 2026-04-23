@@ -1,0 +1,202 @@
+<!-- templates/services/list.html -->
+{% extends "base.html" %}
+
+{% block title %}Service Users - Staff Rota System{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>
+                <i class="fas fa-user-plus me-2"></i>
+                Service Users
+            </h1>
+            <a href="/services/add" class="btn btn-primary">
+                <i class="fas fa-plus me-1"></i> Add Service User
+            </a>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                {% if services and services|length > 0 %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Service User</th>
+                                <th>Shift</th>
+                                <th>Duration</th>
+                                <th>Support Ratio</th>
+                                <th>Days/Week</th>
+                                <th>Weekly Hours</th>
+                                <th>Location</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for service in services %}
+                            <tr>
+                                <td>
+                                    <strong>{{ service['Service User'] }}</strong>
+                                </td>
+                                <td>{{ service['Shift'] }}</td>
+                                <td>{{ service['Shift Duration (hrs)'] }} hrs</td>
+                                <td>
+                                    {% set ratio = service['Support Ratio']|int %}
+                                    {% if ratio == 1 %}
+                                        <span class="badge bg-info">1:1</span>
+                                    {% elif ratio == 2 %}
+                                        <span class="badge bg-warning">2:1</span>
+                                    {% elif ratio == 3 %}
+                                        <span class="badge bg-danger">3:1</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">{{ ratio }}:1</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ service['Days/Week'] }}</td>
+                                <td>{{ service['Weekly Required Hours'] }}</td>
+                                <td>{{ service['Location'] }}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" onclick="viewService('{{ service['Service User'] }}')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary" onclick="editService('{{ service['Service User'] }}')">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-users fa-3x text-muted mb-3"></i>
+                    <h5>No Service Users Found</h5>
+                    <p class="text-muted">Add service users to get started.</p>
+                    <a href="/services/add" class="btn btn-primary">
+                        <i class="fas fa-plus me-1"></i> Add Service User
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Summary Cards -->
+        {% if services and services|length > 0 %}
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <h6>Total Users</h6>
+                        <h3>{{ services|length }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <h6>Total Weekly Hours</h6>
+                        <h3>
+                            {% set total_hours = 0 %}
+                            {% for service in services %}
+                                {% set total_hours = total_hours + service['Weekly Required Hours']|int %}
+                            {% endfor %}
+                            {{ total_hours }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                        <h6>High Support (2:1+)</h6>
+                        <h3>
+                            {% set high_support = 0 %}
+                            {% for service in services %}
+                                {% if service['Support Ratio']|int >= 2 %}
+                                    {% set high_support = high_support + 1 %}
+                                {% endif %}
+                            {% endfor %}
+                            {{ high_support }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <h6>Avg Days/Week</h6>
+                        <h3>
+                            {% set total_days = 0 %}
+                            {% for service in services %}
+                                {% set total_days = total_days + service['Days/Week']|int %}
+                            {% endfor %}
+                            {{ (total_days / services|length)|round(1) }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Service Details Modal -->
+<div class="modal fade" id="serviceModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-user me-2"></i>
+                    <span id="modalTitle">Service User Details</span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-borderless">
+                    <tr><th width="40%">Name:</th><td id="modalName"></td></tr>
+                    <tr><th>Shift:</th><td id="modalShift"></td></tr>
+                    <tr><th>Duration:</th><td id="modalDuration"></td></tr>
+                    <tr><th>Support Ratio:</th><td id="modalRatio"></td></tr>
+                    <tr><th>Days/Week:</th><td id="modalDays"></td></tr>
+                    <tr><th>Weekly Hours:</th><td id="modalHours"></td></tr>
+                    <tr><th>Location:</th><td id="modalLocation"></td></tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function viewService(name) {
+    fetch('/api/services')
+        .then(response => response.json())
+        .then(data => {
+            const service = data.find(s => s['Service User'] === name);
+            if (service) {
+                document.getElementById('modalTitle').textContent = service['Service User'];
+                document.getElementById('modalName').textContent = service['Service User'];
+                document.getElementById('modalShift').textContent = service['Shift'];
+                document.getElementById('modalDuration').textContent = service['Shift Duration (hrs)'] + ' hours';
+                document.getElementById('modalRatio').textContent = service['Support Ratio'] + ':1';
+                document.getElementById('modalDays').textContent = service['Days/Week'];
+                document.getElementById('modalHours').textContent = service['Weekly Required Hours'];
+                document.getElementById('modalLocation').textContent = service['Location'];
+                
+                const modal = new bootstrap.Modal(document.getElementById('serviceModal'));
+                modal.show();
+            }
+        });
+}
+
+function editService(name) {
+    alert('Edit functionality coming soon for: ' + name);
+}
+</script>
+{% endblock %}

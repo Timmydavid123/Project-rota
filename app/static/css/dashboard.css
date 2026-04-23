@@ -1,0 +1,84 @@
+/* app/static/css/dashboard.css */
+/* Dashboard specific styles */
+
+.stats-card {
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.metric-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.insight-card {
+    border-left: 4px solid;
+    margin-bottom: 1rem;
+}
+
+.insight-card.info {
+    border-left-color: #36b9cc;
+}
+
+.insight-card.warning {
+    border-left-color: #f6c23e;
+}
+
+.insight-card.danger {
+    border-left-color: #e74a3b;
+}
+
+.insight-card.success {
+    border-left-color: #1cc88a;
+}
+
+.calendar-legend {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.quick-action-btn {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.quick-action-btn:hover {
+    background-color: #f8f9fc;
+    transform: scale(1.05);
+}
+
+.quick-action-btn i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}

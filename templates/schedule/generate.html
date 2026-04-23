@@ -1,0 +1,560 @@
+<!-- templates/schedule/generate.html - Fixed Capacity Analysis Section -->
+{% extends "base.html" %}
+
+{% block title %}Generate Schedule - Staff Rota AI{% endblock %}
+
+{% block content %}
+<div class="px-3 sm:px-4 lg:px-6 py-4 sm:py-5 lg:py-6 max-w-[1600px] mx-auto">
+    
+    <!-- Header -->
+    <div class="mb-6">
+        <div class="flex items-center gap-2 text-sm text-gray-500 mb-2">
+            <a href="/" class="hover:text-indigo-600 transition-colors">Home</a>
+            <i class="fas fa-chevron-right text-[10px]"></i>
+            <a href="/schedule" class="hover:text-indigo-600 transition-colors">Schedule</a>
+            <i class="fas fa-chevron-right text-[10px]"></i>
+            <span class="text-gray-700 font-medium">Generate</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 flex items-center gap-3">
+            <div class="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-200">
+                <i class="fas fa-magic text-white text-lg"></i>
+            </div>
+            Generate New Schedule
+        </h1>
+        <p class="text-gray-500 mt-2">Configure parameters and let AI create the optimal staff allocation</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Main Form -->
+        <div class="lg:col-span-2">
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
+                <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <i class="fas fa-sliders-h text-indigo-600"></i>
+                    Schedule Parameters
+                </h3>
+                
+                <!-- Error Display with Typing Animation -->
+                {% if error %}
+                <div id="errorPanel" class="mb-6 bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200 rounded-xl p-5">
+                    <div class="flex items-start gap-3 mb-3">
+                        <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-red-800 text-lg">Generation Failed</h4>
+                            <p class="text-red-700 text-sm mt-0.5">The optimizer couldn't create a valid schedule</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Animated Typing Explanation -->
+                    <div class="bg-white rounded-xl p-4 border border-red-100 shadow-inner">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fas fa-terminal text-red-500 text-xs"></i>
+                            <span class="text-xs font-semibold text-red-500 uppercase tracking-wider">Diagnostic Report</span>
+                        </div>
+                        <div id="typingExplanation" class="font-mono text-sm text-gray-700 leading-relaxed">
+                            <span id="typingText"></span><span class="typing-cursor">|</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap gap-3 mt-4">
+                        <button onclick="openCapacityModal()" class="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-all shadow-sm">
+                            <i class="fas fa-chart-bar mr-2"></i>Run Capacity Analysis
+                        </button>
+                        <a href="/staff/add" class="px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition-all shadow-sm">
+                            <i class="fas fa-user-plus mr-2"></i>Add More Staff
+                        </a>
+                        <button onclick="openQuickFixModal()" class="px-4 py-2 bg-amber-600 text-white text-sm font-medium rounded-lg hover:bg-amber-700 transition-all shadow-sm">
+                            <i class="fas fa-lightbulb mr-2"></i>Quick Fix Suggestions
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+                
+                <form method="POST" action="/allocation/generate" id="generate-form" onsubmit="showLoadingModal(event)">
+                    <!-- Start Date -->
+                    <div class="mb-5">
+                        <label for="start_date" class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="far fa-calendar mr-2 text-indigo-500"></i>Start Date
+                        </label>
+                        <input type="date" id="start_date" name="start_date" 
+                               value="{{ default_start_date }}" required
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-400 focus:ring-2 focus:ring-indigo-200 outline-none transition-all">
+                    </div>
+                    
+                    <!-- Number of Days -->
+                    <div class="mb-5">
+                        <label for="num_days" class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="far fa-clock mr-2 text-indigo-500"></i>Number of Days
+                        </label>
+                        <select id="num_days" name="num_days" 
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-indigo-400 focus:ring-2 focus:ring-indigo-200 outline-none transition-all">
+                            <option value="1" {% if num_days == 1 %}selected{% endif %}>1 Day</option>
+                            <option value="3" {% if num_days == 3 %}selected{% endif %}>3 Days</option>
+                            <option value="5" {% if num_days == 5 %}selected{% endif %}>5 Days</option>
+                            <option value="7" {% if num_days == 7 or not num_days %}selected{% endif %}>7 Days (Week)</option>
+                            <option value="14" {% if num_days == 14 %}selected{% endif %}>14 Days (Fortnight)</option>
+                            <option value="30" {% if num_days == 30 %}selected{% endif %}>30 Days (Month)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- AI Toggle -->
+                    <div class="mb-5">
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-robot text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <span class="font-semibold text-gray-800">Use AI Recommendations</span>
+                                    <p class="text-xs text-gray-500">Let AI suggest optimal staff assignments</p>
+                                </div>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="use_ai" name="use_ai" {% if use_ai %}checked{% endif %} class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-200 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Weight Slider -->
+                    <div class="mb-5" id="ai-weight-container" {% if not use_ai %}style="display:none;"{% endif %}>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">
+                            <i class="fas fa-balance-scale mr-2 text-indigo-500"></i>
+                            AI Influence: <span id="weight-value" class="text-indigo-600">{{ ai_weight|default(0.3) }}</span>
+                        </label>
+                        <input type="range" id="ai_weight" name="ai_weight" 
+                               min="0" max="1" step="0.05" value="{{ ai_weight|default(0.3) }}"
+                               class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Balanced</span>
+                            <span>AI Heavy</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Buttons -->
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+                        <button type="submit" 
+                                class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 shadow-lg shadow-indigo-200 transition-all flex items-center gap-2">
+                            <i class="fas fa-cogs"></i>
+                            Generate Schedule
+                        </button>
+                        <a href="/schedule" class="px-6 py-3 bg-gray-100 text-gray-700 font-medium rounded-xl hover:bg-gray-200 transition-all">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Sidebar Info -->
+        <div class="lg:col-span-1 space-y-5">
+            <!-- Capacity Card -->
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-5">
+                <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                    <i class="fas fa-chart-pie text-indigo-600"></i>
+                    Current Capacity
+                </h4>
+                <div id="capacityInfo" class="space-y-3">
+                    <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span class="text-gray-600"><i class="fas fa-users mr-2 text-gray-400"></i>Staff</span>
+                        <span id="staff-count" class="font-bold text-gray-800">--</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                        <span class="text-gray-600"><i class="fas fa-user-plus mr-2 text-gray-400"></i>Services</span>
+                        <span id="service-count" class="font-bold text-gray-800">--</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2">
+                        <span class="text-gray-600"><i class="fas fa-clock mr-2 text-gray-400"></i>Total Capacity</span>
+                        <span id="total-capacity" class="font-bold text-indigo-600">-- hrs</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Status Card -->
+            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-5">
+                <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                    <i class="fas fa-brain text-indigo-600"></i>
+                    AI Status
+                </h4>
+                <div id="ai-status">
+                    <div class="flex items-center justify-center py-4">
+                        <i class="fas fa-spinner fa-spin text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tips Card -->
+            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl border border-indigo-200 p-5">
+                <h4 class="font-bold text-indigo-800 mb-2 flex items-center gap-2">
+                    <i class="fas fa-lightbulb text-amber-500"></i>
+                    Pro Tips
+                </h4>
+                <ul class="text-sm text-indigo-700 space-y-2">
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-emerald-500 mt-1 text-xs"></i>
+                        <span>Week schedules generate faster than month</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-emerald-500 mt-1 text-xs"></i>
+                        <span>AI works best with 30+ days of history</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i class="fas fa-check-circle text-emerald-500 mt-1 text-xs"></i>
+                        <span>Higher AI weight = smarter assignments</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Modal -->
+<div id="loadingModal" class="fixed inset-0 z-50 flex items-center justify-center hidden" style="background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px);">
+    <div class="bg-white rounded-2xl p-8 w-[420px] text-center shadow-2xl">
+        <div class="w-20 h-20 mx-auto mb-4">
+            <svg class="animate-spin" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#e0e7ff" stroke-width="6"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#4f46e5" stroke-width="6" stroke-dasharray="251.2" stroke-dashoffset="100" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <h4 class="font-bold text-gray-800 text-xl mt-6 mb-2">Generating Optimal Schedule</h4>
+        <p class="text-gray-500 text-sm mb-4">Our AI is analyzing constraints and optimizing staff allocation...</p>
+        <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
+            <div class="flex items-center justify-center gap-2 text-indigo-700 text-sm">
+                <i class="fas fa-hourglass-half animate-pulse"></i>
+                <span>Estimated time: <strong>1-2 minutes</strong></span>
+            </div>
+        </div>
+        <p class="text-xs text-gray-400 mt-4">Please don't close this window</p>
+    </div>
+</div>
+
+<!-- Capacity Analysis Modal -->
+<div id="capacityModal" class="fixed inset-0 z-50 flex items-center justify-center hidden" style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px);">
+    <div class="bg-white rounded-2xl p-6 w-[500px] max-h-[80vh] overflow-y-auto shadow-2xl">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-gray-800 text-lg flex items-center gap-2">
+                <i class="fas fa-chart-bar text-indigo-600"></i>
+                Capacity Analysis Report
+            </h3>
+            <button onclick="closeCapacityModal()" class="w-8 h-8 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center">
+                <i class="fas fa-times text-gray-500"></i>
+            </button>
+        </div>
+        <div id="capacityModalContent">
+            <div class="flex items-center justify-center py-8">
+                <i class="fas fa-spinner fa-spin text-indigo-400 text-2xl"></i>
+                <span class="ml-3 text-gray-600">Analyzing capacity...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Fix Modal -->
+<div id="quickFixModal" class="fixed inset-0 z-50 flex items-center justify-center hidden" style="background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px);">
+    <div class="bg-white rounded-2xl p-6 w-[500px] max-h-[80vh] overflow-y-auto shadow-2xl">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-gray-800 text-lg flex items-center gap-2">
+                <i class="fas fa-lightbulb text-amber-500"></i>
+                Quick Fix Suggestions
+            </h3>
+            <button onclick="closeQuickFixModal()" class="w-8 h-8 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center">
+                <i class="fas fa-times text-gray-500"></i>
+            </button>
+        </div>
+        <div class="space-y-3">
+            <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fas fa-user-plus text-emerald-600"></i>
+                    <span class="font-semibold text-emerald-800">Add Staff</span>
+                </div>
+                <p class="text-sm text-emerald-700">Add 12-14 new full-time staff members (40 hrs/week)</p>
+            </div>
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fas fa-clock text-blue-600"></i>
+                    <span class="font-semibold text-blue-800">Increase Hours</span>
+                </div>
+                <p class="text-sm text-blue-700">Increase Max Hours/Week for part-time staff to 35-40 hours</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fas fa-calendar-alt text-amber-600"></i>
+                    <span class="font-semibold text-amber-800">Reduce Days</span>
+                </div>
+                <p class="text-sm text-amber-700">Reduce Days/Week for non-critical service users (7→5 days)</p>
+            </div>
+            <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fas fa-balance-scale text-purple-600"></i>
+                    <span class="font-semibold text-purple-800">Adjust Ratios</span>
+                </div>
+                <p class="text-sm text-purple-700">Change 2:1 support ratios to 1:1 where safe and appropriate</p>
+            </div>
+            <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4">
+                <div class="flex items-center gap-2 mb-2">
+                    <i class="fas fa-moon text-indigo-600"></i>
+                    <span class="font-semibold text-indigo-800">Expand Availability</span>
+                </div>
+                <p class="text-sm text-indigo-700">Allow staff to work evening/night shifts and weekends</p>
+            </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-200">
+            <a href="/staff/add" class="w-full py-3 bg-indigo-600 text-white font-medium rounded-xl hover:bg-indigo-700 transition-all flex items-center justify-center gap-2">
+                <i class="fas fa-user-plus"></i>
+                Add Staff Now
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+// Error typing animation
+const errorMessage = `{{ error|default('') }}`;
+if (errorMessage) {
+    const explanations = {
+        'No feasible solution found': {
+            main: 'The demand for care hours exceeds available staff capacity.',
+            details: ['Total required hours > Total available hours', 'Some staff have availability restrictions', 'Support ratios require multiple staff per service user'],
+            fix: 'Add more staff, reduce service requirements, or allow overtime.'
+        },
+        'Insufficient data': {
+            main: 'Not enough historical data to train AI models.',
+            details: ['Need at least 10 historical shifts', 'AI models require training data'],
+            fix: 'Generate a schedule without AI first, or upload historical data.'
+        },
+        'default': {
+            main: 'The optimizer encountered constraints that cannot be satisfied.',
+            details: ['Check staff availability', 'Verify service user requirements', 'Ensure support ratios can be met'],
+            fix: 'Review constraints and adjust parameters.'
+        }
+    };
+    
+    let explanation = explanations['default'];
+    if (errorMessage.includes('feasible')) explanation = explanations['No feasible solution found'];
+    else if (errorMessage.includes('data')) explanation = explanations['Insufficient data'];
+    
+    const fullText = `> ${explanation.main}\n\nRoot Causes:\n${explanation.details.map(d => '• ' + d).join('\n')}\n\nRecommended Fix:\n→ ${explanation.fix}`;
+    
+    let i = 0;
+    const typingText = document.getElementById('typingText');
+    const cursor = document.querySelector('.typing-cursor');
+    
+    function typeNext() {
+        if (i < fullText.length) {
+            typingText.innerHTML = fullText.substring(0, i + 1).replace(/\n/g, '<br>');
+            i++;
+            setTimeout(typeNext, 15);
+        } else {
+            cursor.style.opacity = '0';
+            setTimeout(() => cursor.style.display = 'none', 200);
+        }
+    }
+    setTimeout(typeNext, 300);
+}
+
+// Modal functions
+function showLoadingModal(e) {
+    if (e) e.preventDefault();
+    document.getElementById('loadingModal').classList.remove('hidden');
+    document.getElementById('generate-form').submit();
+}
+
+// FIXED: Capacity Analysis with proper error handling
+async function openCapacityModal() {
+    document.getElementById('capacityModal').classList.remove('hidden');
+    const content = document.getElementById('capacityModalContent');
+    content.innerHTML = `<div class="flex items-center justify-center py-8"><i class="fas fa-spinner fa-spin text-indigo-400 text-2xl"></i><span class="ml-3 text-gray-600">Analyzing capacity...</span></div>`;
+    
+    try {
+        // Fetch all data in parallel with proper error handling
+        const [statsRes, staffRes, servicesRes] = await Promise.all([
+            fetch('/api/stats').catch(() => null),
+            fetch('/staff/api/list').catch(() => null),
+            fetch('/api/services').catch(() => null)
+        ]);
+        
+        const stats = statsRes?.ok ? await statsRes.json() : { total_staff: 0, total_services: 0, total_weekly_hours: 0 };
+        const staff = staffRes?.ok ? await staffRes.json() : [];
+        const services = servicesRes?.ok ? await servicesRes.json() : [];
+        
+        // Calculate total capacity from staff
+        let totalCapacity = 0;
+        staff.forEach(s => {
+            const maxHours = s['Max Hours/Week'] || s['max_hours'] || 40;
+            totalCapacity += parseInt(maxHours) || 40;
+        });
+        
+        // Calculate required hours from services
+        let requiredHours = 0;
+        services.forEach(s => {
+            const weeklyHours = s['Weekly Required Hours'] || s['weekly_hours'] || 0;
+            requiredHours += parseInt(weeklyHours) || 0;
+        });
+        
+        // If no services data, use stats
+        if (requiredHours === 0 && stats.total_weekly_hours) {
+            requiredHours = stats.total_weekly_hours;
+        }
+        
+        const shortage = requiredHours - totalCapacity;
+        const staffNeeded = Math.ceil(Math.abs(shortage) / 35);
+        
+        content.innerHTML = `
+            <div class="space-y-4">
+                <div class="bg-gray-50 rounded-xl p-4">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-600">Total Staff:</span>
+                        <span class="font-bold text-gray-800">${stats.total_staff || staff.length} employees</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-600">Total Services:</span>
+                        <span class="font-bold text-gray-800">${stats.total_services || services.length} users</span>
+                    </div>
+                    <div class="flex justify-between mb-2 pt-2 border-t border-gray-200">
+                        <span class="text-gray-600 font-semibold">Available Capacity:</span>
+                        <span class="font-bold text-indigo-600">${totalCapacity.toLocaleString()} hrs/week</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-600 font-semibold">Required Hours:</span>
+                        <span class="font-bold text-amber-600">${requiredHours.toLocaleString()} hrs/week</span>
+                    </div>
+                    <div class="flex justify-between pt-2 border-t border-gray-200">
+                        <span class="text-gray-600 font-semibold">${shortage > 0 ? 'Shortage' : 'Surplus'}:</span>
+                        <span class="font-bold ${shortage > 0 ? 'text-red-600' : 'text-emerald-600'} text-lg">${Math.abs(shortage).toLocaleString()} hrs/week</span>
+                    </div>
+                </div>
+                
+                ${shortage > 0 ? `
+                <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-exclamation-triangle text-red-600"></i>
+                        <span class="font-semibold text-red-800">Capacity Shortfall Detected</span>
+                    </div>
+                    <p class="text-sm text-red-700 mb-2">Your current staff cannot meet the required care hours.</p>
+                    <p class="text-sm font-medium text-red-800">
+                        <i class="fas fa-users mr-2"></i>
+                        Recommended: Add approximately <strong>${staffNeeded}-${staffNeeded + 2}</strong> additional staff members
+                    </p>
+                </div>
+                ` : `
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-check-circle text-emerald-600"></i>
+                        <span class="font-semibold text-emerald-800">Capacity is Sufficient</span>
+                    </div>
+                    <p class="text-sm text-emerald-700">You have enough staff capacity to meet required hours.</p>
+                </div>
+                `}
+                
+                <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-4">
+                    <p class="text-sm text-indigo-800">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        Capacity utilization would be <strong>${((requiredHours / totalCapacity) * 100).toFixed(1)}%</strong>
+                    </p>
+                </div>
+            </div>
+        `;
+        
+    } catch (error) {
+        console.error('Capacity analysis error:', error);
+        content.innerHTML = `
+            <div class="text-center py-8">
+                <i class="fas fa-exclamation-circle text-red-400 text-3xl mb-3"></i>
+                <p class="text-red-600 font-medium mb-2">Unable to load capacity data</p>
+                <p class="text-sm text-gray-500">Please check your connection and try again</p>
+                <button onclick="openCapacityModal()" class="mt-4 px-4 py-2 bg-indigo-600 text-white text-sm rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-redo mr-2"></i>Retry
+                </button>
+            </div>
+        `;
+    }
+}
+
+function closeCapacityModal() {
+    document.getElementById('capacityModal').classList.add('hidden');
+}
+
+function openQuickFixModal() {
+    document.getElementById('quickFixModal').classList.remove('hidden');
+}
+
+function closeQuickFixModal() {
+    document.getElementById('quickFixModal').classList.add('hidden');
+}
+
+// Load sidebar capacity info
+async function loadSidebarCapacity() {
+    try {
+        const [statsRes, staffRes] = await Promise.all([
+            fetch('/api/stats').catch(() => null),
+            fetch('/staff/api/list').catch(() => null)
+        ]);
+        
+        const stats = statsRes?.ok ? await statsRes.json() : { total_staff: 0, total_services: 0 };
+        const staff = staffRes?.ok ? await staffRes.json() : [];
+        
+        document.getElementById('staff-count').textContent = stats.total_staff || staff.length || '--';
+        document.getElementById('service-count').textContent = stats.total_services || '--';
+        
+        const totalCap = staff.reduce((s, st) => s + (parseInt(st['Max Hours/Week']) || 40), 0);
+        document.getElementById('total-capacity').textContent = totalCap.toLocaleString() + ' hrs';
+    } catch (error) {
+        document.getElementById('staff-count').textContent = '--';
+        document.getElementById('service-count').textContent = '--';
+        document.getElementById('total-capacity').textContent = '-- hrs';
+    }
+}
+
+// Load AI status
+fetch('/api/health').then(r => r.json()).then(d => {
+    const aiDiv = document.getElementById('ai-status');
+    aiDiv.innerHTML = d.ai_enabled ? `
+        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+            <div class="flex items-center gap-2 mb-2"><i class="fas fa-check-circle text-emerald-600"></i><span class="font-semibold text-emerald-800">AI Active</span></div>
+            <p class="text-sm text-emerald-700">Models trained and ready</p>
+        </div>` : `
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+            <div class="flex items-center gap-2 mb-2"><i class="fas fa-exclamation-triangle text-amber-600"></i><span class="font-semibold text-amber-800">AI Not Trained</span></div>
+            <p class="text-sm text-amber-700 mb-3">Train models for better results</p>
+            <button onclick="trainModels()" class="w-full py-2 bg-amber-600 text-white text-sm font-medium rounded-lg hover:bg-amber-700"><i class="fas fa-brain mr-2"></i>Train Now</button>
+        </div>`;
+}).catch(() => {
+    document.getElementById('ai-status').innerHTML = `<div class="text-center py-4 text-gray-500">Unable to load AI status</div>`;
+});
+
+// Initialize
+loadSidebarCapacity();
+
+// UI controls
+document.getElementById('ai_weight')?.addEventListener('input', e => document.getElementById('weight-value').textContent = e.target.value);
+document.getElementById('use_ai')?.addEventListener('change', e => document.getElementById('ai-weight-container').style.display = e.target.checked ? 'block' : 'none');
+
+function trainModels() {
+    if (confirm('Train AI models now? This may take a minute.')) {
+        fetch('/api/ml/train', { method: 'POST' }).then(r => r.json()).then(d => {
+            alert(d.success ? 'AI models trained successfully!' : 'Error: ' + (d.error || 'Unknown error'));
+            location.reload();
+        });
+    }
+}
+
+// Close modals on escape
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        closeCapacityModal();
+        closeQuickFixModal();
+    }
+});
+
+// Hide loading on page show
+window.addEventListener('pageshow', () => document.getElementById('loadingModal').classList.add('hidden'));
+</script>
+
+<style>
+.typing-cursor { animation: blink 1s infinite; }
+@keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+</style>
+{% endblock %}

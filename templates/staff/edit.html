@@ -1,0 +1,89 @@
+<!-- templates/staff/edit.html -->
+{% extends "base.html" %}
+
+{% block title %}Edit Staff Member{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Edit Staff Member: {{ staff['Employee Name'] }}</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/staff/{{ staff['Employee ID'] }}/update">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" class="form-control" id="name" name="name" 
+                                   value="{{ staff['Employee Name'] }}" required>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="role" class="form-label">Role *</label>
+                            <select class="form-select" id="role" name="role" required>
+                                <option value="Support Worker" {% if staff['Role'] == 'Support Worker' %}selected{% endif %}>Support Worker</option>
+                                <option value="Senior Support Worker" {% if staff['Role'] == 'Senior Support Worker' %}selected{% endif %}>Senior Support Worker</option>
+                                <option value="Team Leader" {% if staff['Role'] == 'Team Leader' %}selected{% endif %}>Team Leader</option>
+                                <option value="Care Coordinator" {% if staff['Role'] == 'Care Coordinator' %}selected{% endif %}>Care Coordinator</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="department" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="department" name="department" 
+                                   value="{{ staff.get('Department', 'Care Team') }}">
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="shift_preference" class="form-label">Shift Preference *</label>
+                            <select class="form-select" id="shift_preference" name="shift_preference" required>
+                                <option value="Flexible" {% if staff['Shift Preference'] == 'Flexible' %}selected{% endif %}>Flexible</option>
+                                <option value="Morning" {% if staff['Shift Preference'] == 'Morning' %}selected{% endif %}>Morning</option>
+                                <option value="Afternoon" {% if staff['Shift Preference'] == 'Afternoon' %}selected{% endif %}>Afternoon</option>
+                                <option value="Evening" {% if staff['Shift Preference'] == 'Evening' %}selected{% endif %}>Evening</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="availability" class="form-label">Availability *</label>
+                        <input type="text" class="form-control" id="availability" name="availability" 
+                               value="{{ staff['Availability'] }}" required>
+                        <small class="text-muted">Format: Mon;Tue;Wed;Thu;Fri</small>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="max_hours" class="form-label">Max Hours/Week *</label>
+                            <input type="number" class="form-control" id="max_hours" name="max_hours" 
+                                   value="{{ staff['Max Hours/Week'] }}" min="0" max="168" required>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="experience" class="form-label">Experience (Years)</label>
+                            <input type="number" class="form-control" id="experience" name="experience" 
+                                   value="{{ staff.get('Experience_Years', 0) }}" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="skills" class="form-label">Special Skills</label>
+                        <textarea class="form-control" id="skills" name="skills" rows="3">{{ staff.get('Special_Skills', '') }}</textarea>
+                        <small class="text-muted">Enter skills separated by commas</small>
+                    </div>
+                    
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="/staff" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Update Staff Member
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

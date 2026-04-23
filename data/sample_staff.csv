@@ -1,0 +1,79 @@
+Employee ID,Employee Name,Role,Department,Availability,Shift Preference,Max Hours/Week,Notes
+EMP001,John Smith,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri",Morning,35,Prefers mornings
+EMP002,Jane Doe,Senior Support Worker,Day Service,"Mon;Tue;Wed;Thu;Fri;Sat",Evening,37.5,Experienced
+EMP003,Michael Johnson,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri;Sat;Sun",Flexible,40,Full-time
+EMP004,Emily Davis,Support Worker,Outreach,"Mon;Wed;Thu;Fri;Sat",Night,30,Part-time
+EMP005,Robert Brown,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri",Morning,35,Prefers mornings
+EMP006,Jessica Wilson,Support Worker,Day Service,"Mon;Tue;Wed;Thu;Sat;Sun",Flexible,37.5,
+EMP007,David Miller,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri",Evening,40,Experienced
+EMP008,Sarah Moore,Support Worker,Outreach,"Mon;Tue;Wed;Fri;Sat;Sun",No Preference,30,Part-time
+EMP009,William Taylor,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,Full-time
+EMP010,Ashley Anderson,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat",Morning,35,Prefers mornings
+EMP011,Christopher Thomas,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Evening,37.5,Experienced
+EMP012,Amanda Jackson,Support Worker,Outreach,"Mon;Tue;Thu;Fri;Sat",Night,30,Part-time
+EMP013,Matthew White,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri",Flexible,40,Full-time
+EMP014,Megan Harris,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",No Preference,35,
+EMP015,Joshua Martin,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri",Morning,37.5,Prefers mornings
+EMP016,Brittany Thompson,Support Worker,Outreach,"Mon;Tue;Wed;Thu;Sat",Evening,30,Part-time
+EMP017,Andrew Garcia,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,Experienced
+EMP018,Samantha Martinez,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat",Night,35,
+EMP019,Joseph Robinson,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sun",Morning,37.5,Full-time
+EMP020,Olivia Clark,Support Worker,Outreach,"Mon;Tue;Wed;Fri;Sat",No Preference,30,Part-time
+EMP021,Daniel Rodriguez,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,Experienced
+EMP022,Sophia Lewis,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat",Evening,35,
+EMP023,James Lee,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri",Night,37.5,Full-time
+EMP024,Emma Walker,Support Worker,Outreach,"Mon;Tue;Thu;Fri;Sat;Sun",Morning,30,Part-time
+EMP025,Alexander Hall,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri",Flexible,40,Experienced
+EMP026,Isabella Allen,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat",No Preference,35,
+EMP027,Benjamin Young,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Evening,37.5,Full-time
+EMP028,Charlotte King,Support Worker,Outreach,"Mon;Tue;Wed;Fri;Sat",Night,30,Part-time
+EMP029,Henry Wright,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri",Flexible,40,Experienced
+EMP030,Grace Scott,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",Morning,35,Prefers mornings 
+EMP031,Liam Turner,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat;Sun",Flexible,40,Full-time
+EMP032,Chloe Bennett,Support Worker,Day Service,"Tue;Wed;Thu;Fri;Sat",Morning,35,
+EMP033,Noah Parker,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Evening,40,Experienced
+EMP034,Ava Edwards,Support Worker,Outreach,"Wed;Thu;Fri;Sat;Sun",Night,30,Part-time
+EMP035,Ethan Collins,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri",Morning,37.5,
+EMP036,Isla Stewart,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,Experienced
+EMP037,Lucas Morris,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat",Evening,35,
+EMP038,Mia Rogers,Support Worker,Outreach,"Mon;Tue;Wed;Thu;Sat;Sun",Night,30,Part-time
+EMP039,Jack Cook,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri;Sat;Sun",Flexible,40,Full-time
+EMP040,Freya Morgan,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",No Preference,35,
+EMP041,Harry Bell,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri",Morning,40,Experienced
+EMP042,Evie Murphy,Support Worker,Outreach,"Tue;Wed;Thu;Fri;Sat",Evening,30,Part-time
+EMP043,Oscar Bailey,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Night,37.5,
+EMP044,Amelia Rivera,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat",Morning,35,
+EMP045,Leo Cooper,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,Experienced
+EMP046,Grace Richardson,Support Worker,Outreach,"Mon;Tue;Wed;Fri;Sat;Sun",Night,30,Part-time
+EMP047,Alfie Cox,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri",Evening,40,
+EMP048,Poppy Howard,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",No Preference,35,
+EMP049,Theo Ward,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Morning,37.5,
+EMP050,Lily Torres,Support Worker,Outreach,"Tue;Wed;Thu;Fri;Sat",Evening,30,
+EMP051,George Peterson,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,Experienced
+EMP052,Sophie Gray,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",Morning,35,
+EMP053,Arthur Ramirez,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat;Sun",Night,40,
+EMP054,Isabella James,Support Worker,Outreach,"Mon;Tue;Wed;Fri;Sat",No Preference,30,
+EMP055,Henry Watson,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,
+EMP056,Emily Brooks,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",Evening,35,
+EMP057,Daniel Kelly,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri",Morning,40,Experienced
+EMP058,Jessica Sanders,Support Worker,Outreach,"Tue;Wed;Thu;Fri;Sat;Sun",Night,30,
+EMP059,Jacob Price,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,37.5,
+EMP060,Lucy Bennett,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",No Preference,35
+EMP061,Caleb Foster,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat;Sun",Night,40,Full-time
+EMP062,Hannah Price,Support Worker,Day Service,"Wed;Thu;Fri;Sat;Sun",Morning,35,
+EMP063,Ryan Hughes,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Evening,40,Experienced
+EMP064,Ellie Ward,Support Worker,Outreach,"Tue;Wed;Thu;Fri;Sat;Sun",Night,30,Part-time
+EMP065,Nathan Brooks,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri",Morning,37.5,
+EMP066,Zoe Coleman,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,Experienced
+EMP067,Adam Jenkins,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat",Evening,35,
+EMP068,Molly Perry,Support Worker,Outreach,"Mon;Tue;Wed;Thu;Sat;Sun",Night,30,Part-time
+EMP069,Sean Powell,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri;Sat;Sun",Flexible,40,Full-time
+EMP070,Abigail Long,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",No Preference,35,
+EMP071,Connor Patterson,Senior Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri",Morning,40,Experienced
+EMP072,Sophia Hughes,Support Worker,Outreach,"Tue;Wed;Thu;Fri;Sat",Evening,30,Part-time
+EMP073,Tyler Barnes,Support Worker,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Night,37.5,
+EMP074,Georgia Chapman,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat",Morning,35,
+EMP075,Lewis Shaw,Care Coordinator,Residential,"Mon;Tue;Wed;Thu;Fri;Sat",Flexible,40,Experienced
+EMP076,Katie Fowler,Support Worker,Outreach,"Mon;Tue;Wed;Fri;Sat;Sun",Night,30,Part-time
+EMP077,Jordan West,Team Leader,Residential,"Mon;Tue;Wed;Thu;Fri",Evening,40,
+EMP078,Rebecca Holmes,Support Worker,Day Service,"Mon;Wed;Thu;Fri;Sat;Sun",No Preference,35

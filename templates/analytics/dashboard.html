@@ -1,0 +1,161 @@
+<!-- templates/analytics/dashboard.html -->
+{% extends "base.html" %}
+
+{% block title %}Analytics Dashboard{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-12">
+        <h1 class="mb-4">Analytics Dashboard</h1>
+    </div>
+</div>
+
+<!-- Coverage Analysis -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Coverage Analysis</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Service User</th>
+                                <th>Required Ratio</th>
+                                <th>Days Covered</th>
+                                <th>Days Required</th>
+                                <th>Coverage %</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in coverage %}
+                            <tr>
+                                <td>{{ item.service_user }}</td>
+                                <td>{{ item.required_ratio }}:1</td>
+                                <td>{{ item.days_covered }}</td>
+                                <td>{{ item.days_required }}</td>
+                                <td>
+                                    <div class="progress" style="height: 20px;">
+                                        <div class="progress-bar bg-{{ 
+                                            'success' if item.coverage_percentage >= 90 
+                                            else 'warning' if item.coverage_percentage >= 70 
+                                            else 'danger' 
+                                        }}" style="width: {{ item.coverage_percentage }}%">
+                                            {{ item.coverage_percentage }}%
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge bg-{{ 
+                                        'success' if item.status == 'Good' 
+                                        else 'warning' if item.status == 'Warning' 
+                                        else 'danger' 
+                                    }}">
+                                        {{ item.status }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Staff Utilization -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Staff Utilization</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Staff Member</th>
+                                <th>Role</th>
+                                <th>Assigned Hours</th>
+                                <th>Max Hours</th>
+                                <th>Utilization</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in utilization %}
+                            <tr>
+                                <td>{{ item.staff_name }}</td>
+                                <td>{{ item.role }}</td>
+                                <td>{{ item.assigned_hours }}</td>
+                                <td>{{ item.max_hours }}</td>
+                                <td>
+                                    <div class="progress" style="height: 20px;">
+                                        <div class="progress-bar bg-{{ item.color }}" 
+                                             style="width: {{ item.utilization_rate }}%">
+                                            {{ item.utilization_rate }}%
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge bg-{{ item.color }}">
+                                        {{ item.status }}
+                                    </span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- AI Insights -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-robot"></i>
+                    AI-Generated Insights
+                </h5>
+            </div>
+            <div class="card-body">
+                {% for insight in insights %}
+                <div class="alert alert-{{ insight.severity }} mb-3">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            {% if insight.severity == 'danger' %}
+                            <i class="fas fa-exclamation-circle fa-2x"></i>
+                            {% elif insight.severity == 'warning' %}
+                            <i class="fas fa-exclamation-triangle fa-2x"></i>
+                            {% elif insight.severity == 'success' %}
+                            <i class="fas fa-check-circle fa-2x"></i>
+                            {% else %}
+                            <i class="fas fa-info-circle fa-2x"></i>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <strong>{{ insight.type }}</strong>
+                            <p class="mb-1">{{ insight.message }}</p>
+                            {% if insight.recommendation %}
+                            <small class="text-muted">
+                                <i class="fas fa-lightbulb"></i> {{ insight.recommendation }}
+                            </small>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

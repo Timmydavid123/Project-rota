@@ -1,0 +1,174 @@
+<!-- templates/components/sidebar.html -->
+<aside class="fixed inset-y-0 left-0 z-50 w-64 lg:w-72 bg-gradient-to-b from-slate-900 to-slate-800 text-slate-300 flex flex-col border-r border-slate-700/50">
+    
+    <!-- Brand -->
+    <div class="p-5 lg:p-6 border-b border-slate-700/50">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 lg:w-11 lg:h-11 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                <i class="fas fa-calendar-check text-white text-lg lg:text-xl"></i>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-white font-semibold text-base lg:text-lg tracking-tight">Staff Rota</span>
+                <span class="text-[10px] lg:text-[11px] font-medium uppercase tracking-wider text-indigo-300">AI Powered</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="flex-1 px-3 py-6 overflow-y-auto">
+        <div class="mb-4 px-3">
+            <span class="text-[10px] lg:text-[11px] font-semibold uppercase tracking-wider text-slate-500">Main Navigation</span>
+        </div>
+        
+        <ul class="space-y-1">
+            <!-- Dashboard -->
+            <li>
+                <a href="/" class="flex items-center gap-3 px-3 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 group relative
+                    {{ 'bg-indigo-500/10 text-white border-l-2 border-indigo-500' if active_page == 'dashboard' else 'hover:bg-slate-700/30 hover:text-white' }}">
+                    <i class="fas fa-chart-pie w-5 text-base lg:text-lg {{ 'text-indigo-400' if active_page == 'dashboard' else 'text-slate-400 group-hover:text-slate-300' }}"></i>
+                    <span>Dashboard</span>
+                    {% if active_page == 'dashboard' %}
+                    <span class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-indigo-500 rounded-r-full"></span>
+                    {% endif %}
+                </a>
+            </li>
+            
+            <!-- Staff Management -->
+            <li>
+                <a href="/staff" class="flex items-center gap-3 px-3 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 group relative
+                    {{ 'bg-indigo-500/10 text-white border-l-2 border-indigo-500' if active_page == 'staff' else 'hover:bg-slate-700/30 hover:text-white' }}">
+                    <i class="fas fa-user-nurse w-5 text-base lg:text-lg {{ 'text-indigo-400' if active_page == 'staff' else 'text-slate-400 group-hover:text-slate-300' }}"></i>
+                    <span>Staff Management</span>
+                    {% if active_page == 'staff' %}
+                    <span class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-indigo-500 rounded-r-full"></span>
+                    {% endif %}
+                </a>
+            </li>
+            
+            <!-- Service Users -->
+            <li>
+                <a href="/services" class="flex items-center gap-3 px-3 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 group relative
+                    {{ 'bg-indigo-500/10 text-white border-l-2 border-indigo-500' if active_page == 'services' else 'hover:bg-slate-700/30 hover:text-white' }}">
+                    <i class="fas fa-hands-helping w-5 text-base lg:text-lg {{ 'text-indigo-400' if active_page == 'services' else 'text-slate-400 group-hover:text-slate-300' }}"></i>
+                    <span>Service Users</span>
+                    {% if active_page == 'services' %}
+                    <span class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-indigo-500 rounded-r-full"></span>
+                    {% endif %}
+                </a>
+            </li>
+            
+            <!-- Schedule -->
+            <li>
+                <a href="/schedule" class="flex items-center gap-3 px-3 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 group relative
+                    {{ 'bg-indigo-500/10 text-white border-l-2 border-indigo-500' if active_page == 'schedule' else 'hover:bg-slate-700/30 hover:text-white' }}">
+                    <i class="fas fa-calendar-alt w-5 text-base lg:text-lg {{ 'text-indigo-400' if active_page == 'schedule' else 'text-slate-400 group-hover:text-slate-300' }}"></i>
+                    <span>Schedule</span>
+                    {% if active_page == 'schedule' %}
+                    <span class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-indigo-500 rounded-r-full"></span>
+                    {% endif %}
+                </a>
+            </li>
+            
+            <!-- Analytics -->
+            <li>
+                <a href="/analytics" class="flex items-center gap-3 px-3 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-medium transition-all duration-200 group relative
+                    {{ 'bg-indigo-500/10 text-white border-l-2 border-indigo-500' if active_page == 'analytics' else 'hover:bg-slate-700/30 hover:text-white' }}">
+                    <i class="fas fa-chart-line w-5 text-base lg:text-lg {{ 'text-indigo-400' if active_page == 'analytics' else 'text-slate-400 group-hover:text-slate-300' }}"></i>
+                    <span>Analytics</span>
+                    {% if active_page == 'analytics' %}
+                    <span class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-indigo-500 rounded-r-full"></span>
+                    {% endif %}
+                </a>
+            </li>
+        </ul>
+        
+        <div class="mt-8 mb-4 px-3">
+            <span class="text-[10px] lg:text-[11px] font-semibold uppercase tracking-wider text-slate-500">System</span>
+        </div>
+        
+        <ul class="space-y-1">
+            <!-- Settings -->
+            <li>
+                <a href="/settings" class="flex items-center gap-3 px-3 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-medium text-slate-400 hover:bg-slate-700/30 hover:text-white transition-all duration-200 group">
+                    <i class="fas fa-sliders-h w-5 text-base lg:text-lg text-slate-400 group-hover:text-slate-300"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            
+            <!-- Help -->
+            <li>
+                <a href="/help" class="flex items-center gap-3 px-3 py-2.5 lg:py-3 rounded-lg text-sm lg:text-base font-medium text-slate-400 hover:bg-slate-700/30 hover:text-white transition-all duration-200 group">
+                    <i class="fas fa-question-circle w-5 text-base lg:text-lg text-slate-400 group-hover:text-slate-300"></i>
+                    <span>Help & Support</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Footer -->
+    <div class="p-4 border-t border-slate-700/50">
+        <!-- User Profile -->
+        <div class="flex items-center gap-3 p-2 bg-slate-700/30 rounded-xl mb-3">
+            <div class="w-9 h-9 lg:w-10 lg:h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                <span class="text-white font-semibold text-xs lg:text-sm">AD</span>
+            </div>
+            <div class="flex-1 min-w-0">
+                <p class="text-white font-medium text-sm truncate">Alex Morgan</p>
+                <p class="text-slate-400 text-xs">Administrator</p>
+            </div>
+            <button class="w-8 h-8 rounded-lg border border-slate-600 hover:border-red-500/50 hover:bg-red-500/10 text-slate-400 hover:text-red-400 transition-all duration-200 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-sign-out-alt text-xs"></i>
+            </button>
+        </div>
+        
+        <!-- System Status -->
+        <div class="flex items-center justify-center gap-2 py-1">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-slate-500 text-xs">System Online</span>
+        </div>
+    </div>
+</aside>
+
+<!-- Mobile Menu Toggle Button -->
+<button id="mobileMenuToggle" class="fixed top-4 left-4 z-50 lg:hidden bg-slate-800 text-white p-2 rounded-lg shadow-lg" onclick="toggleMobileMenu()">
+    <i class="fas fa-bars text-xl"></i>
+</button>
+
+<script>
+function toggleMobileMenu() {
+    const sidebar = document.querySelector('aside');
+    sidebar.classList.toggle('-translate-x-full');
+    sidebar.classList.toggle('translate-x-0');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    const sidebar = document.querySelector('aside');
+    const toggle = document.getElementById('mobileMenuToggle');
+    
+    if (window.innerWidth < 1024 && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        sidebar.classList.add('-translate-x-full');
+        sidebar.classList.remove('translate-x-0');
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', function() {
+    const sidebar = document.querySelector('aside');
+    if (window.innerWidth >= 1024) {
+        sidebar.classList.remove('-translate-x-full');
+        sidebar.classList.add('translate-x-0');
+    } else {
+        sidebar.classList.add('-translate-x-full');
+        sidebar.classList.remove('translate-x-0');
+    }
+});
+
+// Initialize mobile menu state
+if (window.innerWidth < 1024) {
+    document.querySelector('aside').classList.add('-translate-x-full');
+}
+</script>

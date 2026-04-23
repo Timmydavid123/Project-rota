@@ -1,0 +1,61 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: rota-system
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - SECRET_KEY=${SECRET_KEY:-dev-secret-key}
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/rota
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./templates:/app/templates
+      - ./app/static:/app/app/static
+    depends_on:
+      - db
+    networks:
+      - rota-network
+    command: >
+      sh -c "python scripts/init_data.py && 
+             python scripts/train_models.py && 
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+  db:
+    image: postgres:15-alpine
+    container_name: rota-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=rota
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - rota-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: rota-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./app/static:/static:ro
+    depends_on:
+      - app
+    networks:
+      - rota-network
+
+volumes:
+  postgres-data:
+
+networks:
+  rota-network:
+    driver: bridge

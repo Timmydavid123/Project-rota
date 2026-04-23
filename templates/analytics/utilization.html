@@ -1,0 +1,279 @@
+<!-- templates/analytics/utilization.html -->
+{% extends "base.html" %}
+
+{% block title %}Staff Utilization{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Staff Utilization Analysis</h1>
+            <button class="btn btn-outline-primary" onclick="exportReport()">
+                <i class="fas fa-download"></i> Export Report
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-7">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Utilization by Staff Member</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="utilizationChart" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-5">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Distribution</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="distributionChart" height="200"></canvas>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Summary Statistics</h5>
+            </div>
+            <div class="card-body">
+                <div id="utilization-summary"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Detailed Utilization Report</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Staff Member</th>
+                                <th>Role</th>
+                                <th>Assigned Hours</th>
+                                <th>Max Hours</th>
+                                <th>Available Hours</th>
+                                <th>Utilization</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="utilization-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let utilizationChart = null;
+let distributionChart = null;
+
+async function loadUtilizationData() {
+    try {
+        const response = await fetch('/api/analytics/utilization');
+        const data = await response.json();
+        
+        renderCharts(data);
+        renderTable(data);
+        renderSummary(data);
+    } catch (error) {
+        console.error('Failed to load utilization data:', error);
+    }
+}
+
+function renderCharts(data) {
+    // Bar chart
+    const ctx1 = document.getElementById('utilizationChart').getContext('2d');
+    
+    if (utilizationChart) {
+        utilizationChart.destroy();
+    }
+    
+    utilizationChart = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: data.map(d => d.staff_name),
+            datasets: [{
+                label: 'Assigned Hours',
+                data: data.map(d => d.assigned_hours),
+                backgroundColor: data.map(d => {
+                    if (d.utilization_rate > 95) return '#e74a3b';
+                    if (d.utilization_rate > 70) return '#1cc88a';
+                    if (d.utilization_rate > 30) return '#f6c23e';
+                    return '#858796';
+                }),
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#eaecf4'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+    
+    // Distribution pie chart
+    const ctx2 = document.getElementById('distributionChart').getContext('2d');
+    
+    if (distributionChart) {
+        distributionChart.destroy();
+    }
+    
+    const statusCounts = {
+        'Over-utilized': data.filter(d => d.status === 'Over-utilized').length,
+        'Well-utilized': data.filter(d => d.status === 'Well-utilized').length,
+        'Under-utilized': data.filter(d => d.status === 'Under-utilized').length,
+        'Idle': data.filter(d => d.status === 'Idle').length
+    };
+    
+    distributionChart = new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(statusCounts),
+            datasets: [{
+                data: Object.values(statusCounts),
+                backgroundColor: ['#e74a3b', '#1cc88a', '#f6c23e', '#858796'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+}
+
+function renderTable(data) {
+    const tbody = document.getElementById('utilization-table-body');
+    
+    tbody.innerHTML = data.map(item => `
+        <tr>
+            <td><strong>${item.staff_name}</strong></td>
+            <td>${item.role}</td>
+            <td>${item.assigned_hours}</td>
+            <td>${item.max_hours}</td>
+            <td>${item.available_hours}</td>
+            <td>
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar bg-${item.color}" 
+                         style="width: ${item.utilization_rate}%">
+                        ${item.utilization_rate}%
+                    </div>
+                </div>
+            </td>
+            <td>
+                <span class="badge bg-${item.color}">
+                    ${item.status}
+                </span>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function renderSummary(data) {
+    const totalStaff = data.length;
+    const totalAssigned = data.reduce((sum, d) => sum + d.assigned_hours, 0);
+    const totalCapacity = data.reduce((sum, d) => sum + d.max_hours, 0);
+    const avgUtilization = data.reduce((sum, d) => sum + d.utilization_rate, 0) / totalStaff;
+    
+    document.getElementById('utilization-summary').innerHTML = `
+        <div class="mb-3">
+            <h6>Total Staff</h6>
+            <h2>${totalStaff}</h2>
+        </div>
+        <div class="mb-3">
+            <h6>Total Hours Assigned</h6>
+            <h2>${totalAssigned} / ${totalCapacity}</h2>
+        </div>
+        <div class="mb-3">
+            <h6>Average Utilization</h6>
+            <h2 class="${getTextClass(avgUtilization)}">${avgUtilization.toFixed(1)}%</h2>
+        </div>
+        <hr>
+        <div class="mb-2">
+            <strong>Recommendations:</strong>
+        </div>
+        <div id="recommendations"></div>
+    `;
+    
+    // Generate recommendations
+    const overUtilized = data.filter(d => d.status === 'Over-utilized');
+    const underUtilized = data.filter(d => d.status === 'Under-utilized' || d.status === 'Idle');
+    
+    let recommendations = '';
+    
+    if (overUtilized.length > 0) {
+        recommendations += `<p class="text-danger mb-1">
+            <i class="fas fa-exclamation-triangle"></i> 
+            ${overUtilized.length} staff over-utilized. Consider redistributing workload.
+        </p>`;
+    }
+    
+    if (underUtilized.length > 0) {
+        recommendations += `<p class="text-warning mb-1">
+            <i class="fas fa-info-circle"></i> 
+            ${underUtilized.length} staff have available capacity.
+        </p>`;
+    }
+    
+    if (avgUtilization > 85) {
+        recommendations += `<p class="text-warning mb-1">
+            <i class="fas fa-chart-line"></i> 
+            System utilization is high. Consider hiring additional staff.
+        </p>`;
+    }
+    
+    document.getElementById('recommendations').innerHTML = recommendations || 
+        '<p class="text-success"><i class="fas fa-check-circle"></i> Utilization is optimal.</p>';
+}
+
+function getTextClass(percentage) {
+    if (percentage >= 70 && percentage <= 95) return 'text-success';
+    if (percentage > 95) return 'text-danger';
+    return 'text-warning';
+}
+
+function exportReport() {
+    window.location.href = '/api/analytics/utilization/export';
+}
+
+// Load data on page load
+document.addEventListener('DOMContentLoaded', loadUtilizationData);
+</script>
+{% endblock %}

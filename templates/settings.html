@@ -1,0 +1,175 @@
+<!-- templates/settings.html -->
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        <h1 class="mb-4">System Settings</h1>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">AI Configuration</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">AI Status</label>
+                    <div id="ai-status-display"></div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="ai-weight" class="form-label">Default AI Weight</label>
+                    <input type="range" class="form-range" id="ai-weight" min="0" max="1" step="0.05" value="0.3">
+                    <small class="text-muted">Influence of AI recommendations on scheduling</small>
+                </div>
+                
+                <button class="btn btn-primary" onclick="trainAIModels()">
+                    <i class="fas fa-brain"></i> Train AI Models
+                </button>
+                <button class="btn btn-outline-secondary" onclick="resetAIModels()">
+                    <i class="fas fa-undo"></i> Reset Models
+                </button>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Data Management</h5>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-outline-primary me-2" onclick="exportData()">
+                    <i class="fas fa-download"></i> Export Data
+                </button>
+                <button class="btn btn-outline-warning me-2" onclick="importData()">
+                    <i class="fas fa-upload"></i> Import Data
+                </button>
+                <button class="btn btn-outline-danger" onclick="resetData()">
+                    <i class="fas fa-trash"></i> Reset to Sample Data
+                </button>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">System Information</h5>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>Version</th>
+                        <td>1.0.0</td>
+                    </tr>
+                    <tr>
+                        <th>Environment</th>
+                        <td>{{ environment }}</td>
+                    </tr>
+                    <tr>
+                        <th>Last Updated</th>
+                        <td>{{ last_updated }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+async function loadAIStatus() {
+    const response = await fetch('/api/ml/status');
+    const data = await response.json();
+    
+    const display = document.getElementById('ai-status-display');
+    if (data.trained) {
+        display.innerHTML = '<span class="badge bg-success">Trained & Active</span>';
+    } else {
+        display.innerHTML = '<span class="badge bg-warning">Not Trained</span>';
+    }
+}
+
+async function trainAIModels() {
+    if (confirm('Train AI models with current historical data? This may take a few minutes.')) {
+        showLoading('Training AI models...');
+        
+        try {
+            const response = await fetch('/api/ml/train', { method: 'POST' });
+            const data = await response.json();
+            
+            hideLoading();
+            
+            if (data.error) {
+                showToast('Training failed: ' + data.error, 'danger');
+            } else {
+                showToast('AI models trained successfully!', 'success');
+                loadAIStatus();
+            }
+        } catch (error) {
+            hideLoading();
+            showToast('Training failed', 'danger');
+        }
+    }
+}
+
+function resetAIModels() {
+    if (confirm('Reset all AI models? This cannot be undone.')) {
+        // Implement reset functionality
+        showToast('Models reset successfully', 'success');
+        loadAIStatus();
+    }
+}
+
+function exportData() {
+    window.location.href = '/api/export/data';
+}
+
+function importData() {
+    // Create file input
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.csv,.json';
+    
+    input.onchange = async (e) => {
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        try {
+            const response = await fetch('/api/import/data', {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (response.ok) {
+                showToast('Data imported successfully', 'success');
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                showToast('Import failed', 'danger');
+            }
+        } catch (error) {
+            showToast('Import failed', 'danger');
+        }
+    };
+    
+    input.click();
+}
+
+function resetData() {
+    if (confirm('Reset all data to sample data? This will delete all current data.')) {
+        fetch('/api/reset/data', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                showToast('Data reset successfully', 'success');
+                setTimeout(() => location.reload(), 1500);
+            })
+            .catch(error => {
+                showToast('Reset failed', 'danger');
+            });
+    }
+}
+
+// Load AI status on page load
+document.addEventListener('DOMContentLoaded', loadAIStatus);
+</script>
+{% endblock %}

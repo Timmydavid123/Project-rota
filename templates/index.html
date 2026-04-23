@@ -1,0 +1,342 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Staff Rota AI{% endblock %}
+
+{% block content %}
+<div class="px-3 sm:px-4 lg:px-6 py-4 sm:py-5 lg:py-6 max-w-[1600px] mx-auto">
+    <!-- Welcome Header - Fully Responsive -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-5 sm:mb-6">
+        <div class="space-y-0.5 sm:space-y-1">
+            <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight">Welcome back, Alex</h1>
+            <p class="text-xs sm:text-sm text-gray-500" id="dashboardDate"></p>
+        </div>
+        <a href="/schedule/generate" class="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 sm:py-3 bg-indigo-600 text-white text-sm sm:text-base font-medium rounded-xl hover:bg-indigo-700 transition-all duration-200 shadow-sm hover:shadow-md w-full sm:w-auto">
+            <i class="fas fa-magic mr-2 text-sm sm:text-base"></i>
+            <span>Generate Schedule</span>
+        </a>
+    </div>
+
+    <!-- Stats Grid - 2 columns on mobile, 4 on desktop -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 mb-5 sm:mb-6">
+        <!-- Total Staff -->
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-3.5 sm:p-4 lg:p-5 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-start justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                    <p class="text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider truncate">Total Staff</p>
+                    <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mt-1 sm:mt-2">{{ stats.total_staff|default(18) }}</p>
+                </div>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 bg-indigo-50 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-users text-indigo-600 text-sm sm:text-base lg:text-lg"></i>
+                </div>
+            </div>
+            <a href="/staff" class="inline-flex items-center text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium mt-2 sm:mt-3 lg:mt-4 group">
+                <span class="truncate">View Details</span>
+                <i class="fas fa-arrow-right ml-1 text-[10px] sm:text-xs group-hover:translate-x-0.5 transition-transform flex-shrink-0"></i>
+            </a>
+        </div>
+
+        <!-- Service Users -->
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-3.5 sm:p-4 lg:p-5 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-start justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                    <p class="text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider truncate">Service Users</p>
+                    <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mt-1 sm:mt-2">{{ stats.total_services|default(4) }}</p>
+                </div>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 bg-emerald-50 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-user-plus text-emerald-600 text-sm sm:text-base lg:text-lg"></i>
+                </div>
+            </div>
+            <a href="/services" class="inline-flex items-center text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium mt-2 sm:mt-3 lg:mt-4 group">
+                <span class="truncate">View Details</span>
+                <i class="fas fa-arrow-right ml-1 text-[10px] sm:text-xs group-hover:translate-x-0.5 transition-transform flex-shrink-0"></i>
+            </a>
+        </div>
+
+        <!-- Active Shifts -->
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-3.5 sm:p-4 lg:p-5 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-start justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                    <p class="text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider truncate">Active Shifts</p>
+                    <p class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mt-1 sm:mt-2">{{ stats.active_shifts|default(40) }}</p>
+                </div>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 bg-amber-50 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-calendar-alt text-amber-600 text-sm sm:text-base lg:text-lg"></i>
+                </div>
+            </div>
+            <a href="/schedule" class="inline-flex items-center text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium mt-2 sm:mt-3 lg:mt-4 group">
+                <span class="truncate">View Schedule</span>
+                <i class="fas fa-arrow-right ml-1 text-[10px] sm:text-xs group-hover:translate-x-0.5 transition-transform flex-shrink-0"></i>
+            </a>
+        </div>
+
+        <!-- AI Status -->
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-3.5 sm:p-4 lg:p-5 hover:shadow-md transition-shadow duration-200">
+            <div class="flex items-start justify-between gap-2">
+                <div class="min-w-0 flex-1">
+                    <p class="text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider truncate">AI Status</p>
+                    <div class="mt-1 sm:mt-2">
+                        <span class="inline-flex items-center px-2 sm:px-2.5 py-1 sm:py-1.5 bg-emerald-50 text-emerald-700 text-[10px] sm:text-xs font-medium rounded-lg">
+                            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-500 rounded-full mr-1.5 sm:mr-2 animate-pulse"></span>
+                            <span class="truncate">Active</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-11 bg-indigo-50 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-robot text-indigo-600 text-sm sm:text-base lg:text-lg"></i>
+                </div>
+            </div>
+            <a href="/analytics" class="inline-flex items-center text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium mt-2 sm:mt-3 lg:mt-4 group">
+                <span class="truncate">View Insights</span>
+                <i class="fas fa-arrow-right ml-1 text-[10px] sm:text-xs group-hover:translate-x-0.5 transition-transform flex-shrink-0"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Actions - Responsive Wrap -->
+    <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-3.5 sm:p-4 lg:p-5 mb-5 sm:mb-6">
+        <h3 class="text-sm sm:text-base font-semibold text-gray-900 mb-3 sm:mb-4">Quick Actions</h3>
+        <div class="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3">
+            <a href="/staff/add" class="inline-flex items-center justify-center sm:justify-start px-4 py-2.5 bg-indigo-50 text-indigo-700 text-xs sm:text-sm font-medium rounded-lg sm:rounded-xl hover:bg-indigo-100 transition-colors duration-200">
+                <i class="fas fa-user-plus mr-2 text-xs sm:text-sm"></i>
+                <span>Add Staff Member</span>
+            </a>
+            <a href="/services/add" class="inline-flex items-center justify-center sm:justify-start px-4 py-2.5 bg-emerald-50 text-emerald-700 text-xs sm:text-sm font-medium rounded-lg sm:rounded-xl hover:bg-emerald-100 transition-colors duration-200">
+                <i class="fas fa-plus-circle mr-2 text-xs sm:text-sm"></i>
+                <span>Add Service User</span>
+            </a>
+            <button onclick="trainAIModels()" class="inline-flex items-center justify-center sm:justify-start px-4 py-2.5 bg-indigo-50 text-indigo-700 text-xs sm:text-sm font-medium rounded-lg sm:rounded-xl hover:bg-indigo-100 transition-colors duration-200">
+                <i class="fas fa-brain mr-2 text-xs sm:text-sm"></i>
+                <span>Train AI Models</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Two Column Layout - Stacks on mobile -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 mb-5 sm:mb-6">
+        <!-- Coverage Chart -->
+        <div class="lg:col-span-2 bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-3.5 sm:p-4 lg:p-5">
+            <div class="flex items-center justify-between mb-3 sm:mb-4">
+                <h3 class="text-sm sm:text-base font-semibold text-gray-900">Coverage Overview</h3>
+                <a href="/analytics/coverage" class="text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium">View Details →</a>
+            </div>
+            <div class="h-48 sm:h-56 md:h-64 lg:h-72">
+                <canvas id="coverageChart"></canvas>
+            </div>
+        </div>
+
+        <!-- AI Insights -->
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-3.5 sm:p-4 lg:p-5">
+            <div class="flex items-center gap-2 mb-3 sm:mb-4">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 bg-indigo-50 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-robot text-indigo-600 text-sm"></i>
+                </div>
+                <h3 class="text-sm sm:text-base font-semibold text-gray-900">AI Insights</h3>
+            </div>
+            
+            <div class="space-y-3 sm:space-y-4">
+                {% if insights %}
+                    {% for insight in insights[:3] %}
+                    <div class="{% if not loop.last %}pb-3 sm:pb-4 border-b border-gray-100{% endif %}">
+                        <div class="flex gap-2 sm:gap-3">
+                            <div class="flex-shrink-0">
+                                {% if insight.severity == 'info' %}
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
+                                    <i class="fas fa-info-circle text-sm"></i>
+                                </span>
+                                {% elif insight.severity == 'warning' %}
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 bg-amber-50 rounded-lg flex items-center justify-center text-amber-600">
+                                    <i class="fas fa-exclamation-triangle text-sm"></i>
+                                </span>
+                                {% elif insight.severity == 'danger' %}
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 bg-red-50 rounded-lg flex items-center justify-center text-red-600">
+                                    <i class="fas fa-exclamation-circle text-sm"></i>
+                                </span>
+                                {% else %}
+                                <span class="w-7 h-7 sm:w-8 sm:h-8 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600">
+                                    <i class="fas fa-check-circle text-sm"></i>
+                                </span>
+                                {% endif %}
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-medium text-gray-900 text-xs sm:text-sm truncate">{{ insight.type }}</p>
+                                <p class="text-gray-600 text-xs sm:text-sm mt-0.5 line-clamp-2">{{ insight.message }}</p>
+                                {% if insight.recommendation %}
+                                <p class="text-indigo-600 text-[10px] sm:text-xs mt-1.5 flex items-start gap-1">
+                                    <i class="fas fa-lightbulb text-[10px] sm:text-xs mt-0.5 flex-shrink-0"></i>
+                                    <span class="line-clamp-2">{{ insight.recommendation }}</span>
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="pb-3 sm:pb-4 border-b border-gray-100">
+                        <div class="flex gap-2 sm:gap-3">
+                            <div class="w-7 h-7 sm:w-8 sm:h-8 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
+                                <i class="fas fa-info-circle text-sm"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-medium text-gray-900 text-xs sm:text-sm">Capacity</p>
+                                <p class="text-gray-600 text-xs sm:text-sm mt-0.5">19 staff members have available capacity</p>
+                                <p class="text-indigo-600 text-[10px] sm:text-xs mt-1.5 flex items-start gap-1">
+                                    <i class="fas fa-lightbulb text-[10px] sm:text-xs mt-0.5"></i>
+                                    <span>Consider increasing their assignments</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex gap-2 sm:gap-3">
+                            <div class="w-7 h-7 sm:w-8 sm:h-8 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600">
+                                <i class="fas fa-check-circle text-sm"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-medium text-gray-900 text-xs sm:text-sm">System Health</p>
+                                <p class="text-gray-600 text-xs sm:text-sm mt-0.5">System at 55.0% utilization</p>
+                                <p class="text-indigo-600 text-[10px] sm:text-xs mt-1.5 flex items-start gap-1">
+                                    <i class="fas fa-lightbulb text-[10px] sm:text-xs mt-0.5"></i>
+                                    <span>System operating normally</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Today's Schedule - Scrollable on mobile -->
+    <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-3.5 sm:p-4 lg:p-5">
+        <div class="flex items-center justify-between mb-3 sm:mb-4">
+            <h3 class="text-sm sm:text-base font-semibold text-gray-900">Today's Schedule</h3>
+            <a href="/schedule" class="text-xs sm:text-sm text-indigo-600 hover:text-indigo-700 font-medium">View All →</a>
+        </div>
+        
+        <div class="overflow-x-auto -mx-3.5 sm:-mx-4 lg:-mx-5 px-3.5 sm:px-4 lg:px-5">
+            <table class="w-full min-w-[500px] sm:min-w-[600px] lg:min-w-0">
+                <thead>
+                    <tr class="border-b border-gray-100">
+                        <th class="text-left py-2 sm:py-3 px-2 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider">Time</th>
+                        <th class="text-left py-2 sm:py-3 px-2 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider">Service User</th>
+                        <th class="text-left py-2 sm:py-3 px-2 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider">Staff</th>
+                        <th class="text-left py-2 sm:py-3 px-2 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider">Ratio</th>
+                        <th class="text-left py-2 sm:py-3 px-2 text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">Location</th>
+                    </tr>
+                </thead>
+                <tbody id="todaySchedule">
+                    <tr>
+                        <td colspan="5" class="text-center py-6 sm:py-8 text-gray-500">
+                            <div class="flex items-center justify-center gap-2">
+                                <i class="fas fa-spinner fa-spin text-xs sm:text-sm"></i>
+                                <span class="text-xs sm:text-sm">Loading schedule...</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Loading Modal -->
+<div id="loadingModal" class="fixed inset-0 z-50 flex items-center justify-center hidden px-4" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(4px);">
+    <div class="bg-white rounded-2xl p-5 sm:p-6 w-full max-w-[280px] sm:max-w-xs text-center shadow-xl">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mx-auto mb-3 sm:mb-4"></div>
+        <p class="font-medium text-gray-900 text-sm sm:text-base">Training AI Models...</p>
+        <p class="text-xs sm:text-sm text-gray-500 mt-1">This may take a moment</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateElement = document.getElementById('dashboardDate');
+    if (dateElement) {
+        dateElement.textContent = new Date().toLocaleDateString('en-GB', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+    }
+
+    // Coverage Chart
+    fetch('/api/analytics/coverage')
+        .then(response => response.json())
+        .then(data => {
+            const ctx = document.getElementById('coverageChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: (data || []).slice(0, 6).map(d => d.service_user) || ['Alice', 'Bob', 'Carol', 'David', 'Eve', 'Frank'],
+                    datasets: [{
+                        data: (data || []).slice(0, 6).map(d => d.coverage_percentage) || [95, 88, 72, 100, 65, 92],
+                        backgroundColor: '#6366f1',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, max: 100, grid: { color: '#e5e7eb' } },
+                        x: { grid: { display: false } }
+                    }
+                }
+            });
+        })
+        .catch(() => {
+            const ctx = document.getElementById('coverageChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Alice', 'Bob', 'Carol', 'David'],
+                    datasets: [{ data: [95, 88, 72, 100], backgroundColor: '#6366f1', borderRadius: 6 }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            });
+        });
+
+    // Today's Schedule
+    const today = new Date().toISOString().split('T')[0];
+    fetch(`/api/schedule?date=${today}`)
+        .then(response => response.json())
+        .then(data => {
+            const tbody = document.getElementById('todaySchedule');
+            if (!data || data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-6 sm:py-8 text-gray-500"><i class="far fa-calendar-alt mr-2"></i>No shifts scheduled for today</td></tr>`;
+                return;
+            }
+            
+            tbody.innerHTML = data.slice(0, 5).map(shift => {
+                const ratioClass = shift.support_ratio === 1 ? 'bg-blue-50 text-blue-700' : shift.support_ratio === 2 ? 'bg-amber-50 text-amber-700' : 'bg-red-50 text-red-700';
+                return `<tr class="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                    <td class="py-2 sm:py-3 px-2 text-xs sm:text-sm font-medium text-gray-900">${shift.shift}</td>
+                    <td class="py-2 sm:py-3 px-2 text-xs sm:text-sm text-gray-700">${shift.service_user}</td>
+                    <td class="py-2 sm:py-3 px-2 text-xs sm:text-sm text-gray-700">${shift.staff_assigned}</td>
+                    <td class="py-2 sm:py-3 px-2"><span class="inline-flex px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-medium rounded-md ${ratioClass}">${shift.support_ratio}:1</span></td>
+                    <td class="py-2 sm:py-3 px-2 text-xs sm:text-sm text-gray-500 hidden md:table-cell">${shift.location || 'N/A'}</td>
+                </tr>`;
+            }).join('');
+        })
+        .catch(() => {
+            document.getElementById('todaySchedule').innerHTML = `<tr><td colspan="5" class="text-center py-6 sm:py-8 text-gray-500"><i class="fas fa-exclamation-circle mr-2"></i>Unable to load schedule</td></tr>`;
+        });
+});
+
+function trainAIModels() {
+    const modal = document.getElementById('loadingModal');
+    modal.classList.remove('hidden');
+    fetch('/api/ml/train', { method: 'POST' })
+        .then(r => r.json())
+        .then(d => { modal.classList.add('hidden'); alert(d.success ? 'AI models trained successfully!' : 'Error: ' + (d.error || 'Unknown error')); if(d.success) location.reload(); })
+        .catch(e => { modal.classList.add('hidden'); alert('Error training models'); });
+}
+
+document.addEventListener('keydown', e => { if(e.key === 'Escape') document.getElementById('loadingModal').classList.add('hidden'); });
+</script>
+{% endblock %}

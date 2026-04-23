@@ -1,0 +1,226 @@
+<!-- templates/analytics/coverage.html -->
+{% extends "base.html" %}
+
+{% block title %}Coverage Analysis{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Coverage Analysis</h1>
+            <button class="btn btn-outline-primary" onclick="exportReport()">
+                <i class="fas fa-download"></i> Export Report
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Coverage by Service User</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="coverageChart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Summary</h5>
+            </div>
+            <div class="card-body">
+                <div id="coverage-summary"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Detailed Coverage Report</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="coverage-table">
+                        <thead>
+                            <tr>
+                                <th>Service User</th>
+                                <th>Required Ratio</th>
+                                <th>Days Covered</th>
+                                <th>Days Required</th>
+                                <th>Coverage %</th>
+                                <th>Gap Days</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="coverage-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let coverageChart = null;
+
+async function loadCoverageData() {
+    try {
+        const response = await fetch('/api/analytics/coverage');
+        const data = await response.json();
+        
+        renderChart(data);
+        renderTable(data);
+        renderSummary(data);
+    } catch (error) {
+        console.error('Failed to load coverage data:', error);
+    }
+}
+
+function renderChart(data) {
+    const ctx = document.getElementById('coverageChart').getContext('2d');
+    
+    if (coverageChart) {
+        coverageChart.destroy();
+    }
+    
+    coverageChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: data.map(d => d.service_user),
+            datasets: [{
+                label: 'Coverage %',
+                data: data.map(d => d.coverage_percentage),
+                backgroundColor: data.map(d => 
+                    d.coverage_percentage >= 90 ? '#1cc88a' : 
+                    d.coverage_percentage >= 70 ? '#f6c23e' : '#e74a3b'
+                ),
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `Coverage: ${context.parsed.y}%`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    grid: {
+                        color: '#eaecf4'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        }
+    });
+}
+
+function renderTable(data) {
+    const tbody = document.getElementById('coverage-table-body');
+    
+    tbody.innerHTML = data.map(item => `
+        <tr>
+            <td><strong>${item.service_user}</strong></td>
+            <td>${item.required_ratio}:1</td>
+            <td>${item.days_covered}</td>
+            <td>${item.days_required}</td>
+            <td>
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar bg-${getColorClass(item.coverage_percentage)}" 
+                         style="width: ${item.coverage_percentage}%">
+                        ${item.coverage_percentage}%
+                    </div>
+                </div>
+            </td>
+            <td>${item.days_required - item.days_covered}</td>
+            <td>
+                <span class="badge bg-${getStatusClass(item.status)}">
+                    ${item.status}
+                </span>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function renderSummary(data) {
+    const totalServices = data.length;
+    const avgCoverage = data.reduce((sum, d) => sum + d.coverage_percentage, 0) / totalServices;
+    const criticalCount = data.filter(d => d.status === 'Critical').length;
+    const warningCount = data.filter(d => d.status === 'Warning').length;
+    const goodCount = data.filter(d => d.status === 'Good').length;
+    
+    document.getElementById('coverage-summary').innerHTML = `
+        <div class="mb-3">
+            <h6>Total Services</h6>
+            <h2>${totalServices}</h2>
+        </div>
+        <div class="mb-3">
+            <h6>Average Coverage</h6>
+            <h2 class="${getTextClass(avgCoverage)}">${avgCoverage.toFixed(1)}%</h2>
+        </div>
+        <hr>
+        <div class="mb-2">
+            <span class="badge bg-success me-2">${goodCount}</span> Good Coverage
+        </div>
+        <div class="mb-2">
+            <span class="badge bg-warning me-2">${warningCount}</span> Warning
+        </div>
+        <div class="mb-2">
+            <span class="badge bg-danger me-2">${criticalCount}</span> Critical
+        </div>
+    `;
+}
+
+function getColorClass(percentage) {
+    if (percentage >= 90) return 'success';
+    if (percentage >= 70) return 'warning';
+    return 'danger';
+}
+
+function getStatusClass(status) {
+    const classes = {
+        'Good': 'success',
+        'Warning': 'warning',
+        'Critical': 'danger'
+    };
+    return classes[status] || 'secondary';
+}
+
+function getTextClass(percentage) {
+    if (percentage >= 90) return 'text-success';
+    if (percentage >= 70) return 'text-warning';
+    return 'text-danger';
+}
+
+function exportReport() {
+    window.location.href = '/api/analytics/coverage/export';
+}
+
+// Load data on page load
+document.addEventListener('DOMContentLoaded', loadCoverageData);
+</script>
+{% endblock %}

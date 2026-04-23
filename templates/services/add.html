@@ -1,0 +1,95 @@
+<!-- templates/services/add.html -->
+{% extends "base.html" %}
+
+{% block title %}Add Service User{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Add New Service User</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/services/add">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="name" class="form-label">Service User Name *</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="support_ratio" class="form-label">Support Ratio *</label>
+                            <select class="form-select" id="support_ratio" name="support_ratio" required>
+                                <option value="1">1:1</option>
+                                <option value="2">2:1</option>
+                                <option value="3">3:1</option>
+                                <option value="4">4:1</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="primary_shift" class="form-label">Primary Shift *</label>
+                            <select class="form-select" id="primary_shift" name="primary_shift" required>
+                                <option value="08:00-16:00">08:00 - 16:00</option>
+                                <option value="09:00-17:00">09:00 - 17:00</option>
+                                <option value="10:00-18:00">10:00 - 18:00</option>
+                                <option value="08:00-20:00">08:00 - 20:00</option>
+                                <option value="20:00-08:00">20:00 - 08:00 (Night)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="shift_duration" class="form-label">Shift Duration (Hours) *</label>
+                            <input type="number" class="form-control" id="shift_duration" name="shift_duration" 
+                                   value="8" min="1" max="24" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="days_per_week" class="form-label">Days Per Week *</label>
+                            <input type="number" class="form-control" id="days_per_week" name="days_per_week" 
+                                   value="5" min="1" max="7" required>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label for="care_level" class="form-label">Care Level *</label>
+                            <select class="form-select" id="care_level" name="care_level" required>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Critical">Critical</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location *</label>
+                        <input type="text" class="form-control" id="location" name="location" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="special_requirements" class="form-label">Special Requirements</label>
+                        <textarea class="form-control" id="special_requirements" name="special_requirements" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="notes" class="form-label">Additional Notes</label>
+                        <textarea class="form-control" id="notes" name="notes" rows="2"></textarea>
+                    </div>
+                    
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="/services" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Service User
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
